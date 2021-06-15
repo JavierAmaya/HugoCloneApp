@@ -5,3 +5,85 @@ body {
     padding: 3rem 1.5rem;
     text-align: center;
 }
+
+.navbarmine{
+    background-color: #3a1f66!important;
+}
+
+.img-logo{
+    width: 70%;
+    height: 70%;
+}
+
+.select-users{
+    margin-right: 10px;
+
+}
+
+
+.select-us{
+    border-radius: 25px;
+    height: 45px;
+    width: 202px;
+    color: #38215c;
+    text-align: center;
+    font-size: larger;
+    font-weight: 600;
+    padding-left: 20px;
+}
+
+.btn-search{
+    background-color: #29154b;
+    border-radius: 25px;
+    height: 45px;
+    width: 140px;
+
+}
+
+.titleApp {
+    /*lugo*/
+    font-size: xxx-large;
+    font-weight: bold;
+    margin-left: 50px;
+    
+}
+
+.titleHello{
+    /*Hello Pedro*/
+
+    font-size: xxx-large;
+    font-weight: bold;
+    color: #3a1f66;
+}
+
+.titleQueNecesitas{
+
+    color: #3a1f66;
+}
+
+.icono{
+
+    width: 50%;
+    margin-left: 10px;
+    margin-top: 20px;
+
+}
+
+.titleCard{
+    font-size: xx-large;
+    color: white;
+    font-weight: bold;
+}
+
+.titleComercioCard{
+    color: white;
+}
+
+.borderCards{
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.footer{
+    background-color:#3a1f66 ;
+}
