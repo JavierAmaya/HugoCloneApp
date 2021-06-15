@@ -87,3 +87,79 @@ body {
 .footer{
     background-color:#3a1f66 ;
 }
+
+.modalheader{
+    background-color: #38215c;
+    color: white;
+}
+
+.titleModal{
+    font-weight: 900;
+    font-size: xxx-large;
+}
+
+.titleCardModal{
+    margin-bottom: -66px;
+}
+
+.titleEmpresa{
+    color: white;
+    font-weight: 900;
+    font-size: xxx-large;
+    margin-left: 10px;
+}
+
+.btnPedir{
+    background-color: #52239b;
+    border-radius: 20px;
+    width: 120px;
+}
+
+.titleProductModal{
+    font-size: x-large;
+    font-weight: 900;
+    color: #52239b;
+}
+
+.mCometario{
+    margin-top: 10px;
+}
+
+.alingPrice{
+    text-align: right;
+}
+
+.bdModalContent{
+    border-radius: 30px;
+}
+
+.mgCardsModal{
+    margin-bottom: 20px;
+}
+
+.inputCantidadSolicitar{
+    font-size: smaller;
+}
+
+.titleCantidadSolicitar{
+    font-size: unset;
+}
+
+.btnProcesarOrden{
+    background-color: #52239b;
+    border-radius: 20px;
+    width: 157px;
+}
+
+.colorBase{
+    color: #52239b;
+}
+
+.titleOrdenes{
+    font-weight: 900;
+    font-size: larger;
+}
+
+.borderModal{
+    border-radius: 30px;
+}

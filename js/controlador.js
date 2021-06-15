@@ -493,3 +493,9 @@ var categorias = [
 
 console.log ('Usuarios', usuarios);
 console.log ('Categorias', categorias);
+
+const modalEmpresa = () => {
+    $('#modEmpresas').modal('show');
+
+}
+
