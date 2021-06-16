@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/all.css"><!--FontAwesome-->
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://kit.fontawesome.com/c0d32cfc92.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top navbarmine">
@@ -18,15 +19,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form class="form-inline my-2 my-lg-0 ml-auto">
                 <div class="select-users">
-                    <select class="form-select select-us" aria-label="Default select example">
-                        <option selected>Pedro Martinez</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select id="selectUsers" class="form-select select-us" aria-label="Default select example" onchange="usuarioSelected()">
+                        <!---select usuarios-->
                     </select>
                 </div>
                 <div>
-                    <button class="btn btn-secondary my-2 my-sm-0 btn-search" type="button" data-toggle="modal" data-target="#modOrdenes">Ver Ordenes</button>
+                    <button class="btn btn-secondary my-2 my-sm-0 btn-search" type="button" data-toggle="modal" data-target="#modOrdenes" onclick="infoModalOrders()">Ver Ordenes</button>
                 </div>
             </form>
         </div>
@@ -36,7 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12">
-                    <h1 class="titleHello"><strong>¡Hola Pedro!</strong></h1>
+                    <h1 class="titleHello"><strong>¡Hola </strong><strong id="userLogged">Amigo!</strong></h1>
                 </div>
             </div>
             <div class="row">
@@ -48,402 +46,34 @@
 
     </section>
     <br><br>
-    <section>
+    <section> <!---vista de cards empresas-->
         <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-md-6 col-sm-12" onclick='modalEmpresa()'>
-                    <div style="background-color: rgb(231, 150, 0);" class="card borderCards">
-                        <img src="./img/icono.png" class="card-img-top icono" alt="icono" >
-                        <div class="card-body">
-                          <h5 class="card-title titleCard">Farmacias</h5>
-                          <h5 class="card-text titleComercioCard">3 Comercios</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-md-6 col-sm-12">
-                    <div style="background-color: rgb(46, 164, 194);" class="card borderCards">
-                        <img src="./img/icono.png" class="card-img-top icono" alt="icono">
-                        <div class="card-body">
-                          <h5 class="card-title titleCard">Regalos</h5>
-                          <h5 class="card-text titleComercioCard">3 Comercios</h5>
-                        </div>
-                    </div>        
-                </div>
-
-                <div class="col-xl-3 col-md-6 col-sm-12">
-                   <div style="background-color: #9482C4;" class="card borderCards">
-                        <img src="./img/icono.png" class="card-img-top icono" alt="icono">
-                        <div class="card-body">
-                          <h5 class="card-title titleCard">Cafe</h5>
-                         <h5 class="card-text titleComercioCard">3 Comercios</h5>
-                        </div>
-                    </div>     
-                </div>
+            <div id="empresasViews" class="row">
                 
-                <div class="col-xl-3 col-md-6 col-sm-12">
-                   <div style="background-color: rgb(40, 127, 143);" class="card borderCards">
-                        <img src="./img/icono.png" class="card-img-top icono" alt="icono">
-                        <div class="card-body">
-                          <h5 class="card-title titleCard">Salud</h5>
-                         <h5 class="card-text titleComercioCard">3 Comercios</h5>
-                        </div>
-                    </div> 
-                </div>
-
-                <div class="col-xl-3 col-md-6 col-sm-12">
-                    <div style="background-color: rgb(36, 177, 146);" class="card borderCards">
-                        <img src="./img/icono.png" class="card-img-top icono" alt="icono">
-                        <div class="card-body">
-                          <h5 class="card-title titleCard">Farmacias</h5>
-                          <h5 class="card-text titleComercioCard">3 Comercios</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-md-6 col-sm-12">
-                    <div style="background-color: rgb(154, 80, 156);" class="card borderCards">
-                        <img src="./img/icono.png" class="card-img-top icono" alt="icono">
-                        <div class="card-body">
-                          <h5 class="card-title titleCard">Regalos</h5>
-                          <h5 class="card-text titleComercioCard">3 Comercios</h5>
-                        </div>
-                    </div>        
-                </div>
-
-                <div class="col-xl-3 col-md-6 col-sm-12">
-                   <div style="background-color: #d64e55;" class="card borderCards">
-                        <img src="./img/icono.png" class="card-img-top icono" alt="icono">
-                        <div class="card-body">
-                          <h5 class="card-title titleCard">Cafe</h5>
-                         <h5 class="card-text titleComercioCard">3 Comercios</h5>
-                        </div>
-                    </div>     
-                </div>
-                
-                <div class="col-xl-3 col-md-6 col-sm-12">
-                   <div style="background-color: rgb(219, 194, 54);" class="card borderCards">
-                        <img src="./img/icono.png" class="card-img-top icono" alt="icono">
-                        <div class="card-body">
-                          <h5 class="card-title titleCard">Salud</h5>
-                         <h5 class="card-text titleComercioCard">3 Comercios</h5>
-                        </div>
-                    </div> 
-                </div>
                 
             </div> <!---row-->
         </div> <!--container-->
-    </section>
+    </section><!---vista de cards empresas-->
     <br><br><br><br><br><br><br><br>
     <section>
         <footer class="footer"> <br><br><br><br></footer>
     </section>
 
-    <section><!---modal empresas-->
+    <section><!---modal categorias-->
         <div class="modal fade bd-example-modal-lg" id="modEmpresas" tabindex="-1" role="dialog" aria-labelledby="modEmpresasTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content bdModalContent">
                 <div class="modal-header modalheader">
-                  <h5 class="modal-title" id="modEmpresasTitle"><strong class="titleModal">Restaurantes</strong></h5>
+                  <h5 class="modal-title" id="modEmpresasTitle"><strong id="catSelected" class="titleModal"></strong></h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
                   <div class="container"> <!---container-->
-                      <div class="row"> <!---row-->
-                          <div class="col-xl-6 col-md-6 col-sm-12 mgCardsModal">
-                                <div class="card">
-                                    <div>
-                                        <img class="card-img-top titleCardModal" src="./img/banner.jpg" alt="Card image cap">
-                                        <h5 class="titleEmpresa">Empresa 1</h5>
-                                    </div>
-                                    
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-6"> 
-                                                    <h5><strong class="titleProductModal">Producto 1</strong></h5>
-                                                </div>
-                                                <div class="col-6">
-                                                    <button class="btn btn-primary btnPedir" data-toggle="modal" data-target="#modalPedirProducto">Pedir</button>
-                                                </div>                                                
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12 mCometario">
-                                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <h6 class="alingPrice">$4.99</h6>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-6"> 
-                                                    <h5><strong class="titleProductModal">Producto 1</strong></h5>
-                                                </div>
-                                                <div class="col-6">
-                                                    <button class="btn btn-primary btnPedir">Pedir</button>
-                                                </div>                                                
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12 mCometario">
-                                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <h6 class="alingPrice">$4.99</h6>
-                                                </div>
-                                            </div>
-
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-6"> 
-                                                    <h5><strong class="titleProductModal">Producto 1</strong></h5>
-                                                </div>
-                                                <div class="col-6">
-                                                    <button class="btn btn-primary btnPedir">Pedir</button>
-                                                </div>                                                
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12 mCometario">
-                                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <h6 class="alingPrice">$4.99</h6>
-                                                </div>
-                                            </div>
-
-                                        </li>
-                                    </ul>
-                                </div>
-                          </div>
-                          <div class="col-xl-6 col-md-6 col-sm-12 mgCardsModal">
-                            <div class="card">
-                                <div>
-                                    <img class="card-img-top titleCardModal" src="./img/banner.jpg" alt="Card image cap">
-                                    <h5 class="titleEmpresa">Empresa 1</h5>
-                                </div>
-                                
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-6"> 
-                                                <h5><strong class="titleProductModal">Producto 1</strong></h5>
-                                            </div>
-                                            <div class="col-6">
-                                                <button class="btn btn-primary btnPedir">Pedir</button>
-                                            </div>                                                
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 mCometario">
-                                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h6 class="alingPrice">$4.99</h6>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-6"> 
-                                                <h5><strong class="titleProductModal">Producto 1</strong></h5>
-                                            </div>
-                                            <div class="col-6">
-                                                <button class="btn btn-primary btnPedir">Pedir</button>
-                                            </div>                                                
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 mCometario">
-                                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h6 class="alingPrice">$4.99</h6>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-6"> 
-                                                <h5><strong class="titleProductModal">Producto 1</strong></h5>
-                                            </div>
-                                            <div class="col-6">
-                                                <button class="btn btn-primary btnPedir">Pedir</button>
-                                            </div>                                                
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 mCometario">
-                                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h6 class="alingPrice">$4.99</h6>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                </ul>
-                            </div>
-                      </div>
-                      <div class="col-xl-6 col-md-6 col-sm-12 mgCardsModal">
-                            <div class="card">
-                                <div>
-                                    <img class="card-img-top titleCardModal" src="./img/banner.jpg" alt="Card image cap">
-                                    <h5 class="titleEmpresa">Empresa 1</h5>
-                                </div>
-                                
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-6"> 
-                                                <h5><strong class="titleProductModal">Producto 1</strong></h5>
-                                            </div>
-                                            <div class="col-6">
-                                                <button class="btn btn-primary btnPedir">Pedir</button>
-                                            </div>                                                
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 mCometario">
-                                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h6 class="alingPrice">$4.99</h6>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-6"> 
-                                                <h5><strong class="titleProductModal">Producto 1</strong></h5>
-                                            </div>
-                                            <div class="col-6">
-                                                <button class="btn btn-primary btnPedir">Pedir</button>
-                                            </div>                                                
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 mCometario">
-                                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h6 class="alingPrice">$4.99</h6>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-6"> 
-                                                <h5><strong class="titleProductModal">Producto 1</strong></h5>
-                                            </div>
-                                            <div class="col-6">
-                                                <button class="btn btn-primary btnPedir">Pedir</button>
-                                            </div>                                                
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 mCometario">
-                                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h6 class="alingPrice">$4.99</h6>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                </ul>
-                            </div>
-                    </div>
-                    <div class="col-xl-6 col-md-6 col-sm-12 mgCardsModal">
-                        <div class="card">
-                            <div>
-                                <img class="card-img-top titleCardModal" src="./img/banner.jpg" alt="Card image cap">
-                                <h5 class="titleEmpresa">Empresa 1</h5>
-                            </div>
-                            
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="col-6"> 
-                                            <h5><strong class="titleProductModal">Producto 1</strong></h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <button class="btn btn-primary btnPedir">Pedir</button>
-                                        </div>                                                
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12 mCometario">
-                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h6 class="alingPrice">$4.99</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="col-6"> 
-                                            <h5><strong class="titleProductModal">Producto 1</strong></h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <button class="btn btn-primary btnPedir">Pedir</button>
-                                        </div>                                                
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12 mCometario">
-                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h6 class="alingPrice">$4.99</h6>
-                                        </div>
-                                    </div>
-
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="col-6"> 
-                                            <h5><strong class="titleProductModal">Producto 1</strong></h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <button class="btn btn-primary btnPedir">Pedir</button>
-                                        </div>                                                
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12 mCometario">
-                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h6 class="alingPrice">$4.99</h6>
-                                        </div>
-                                    </div>
-
-                                </li>
-                            </ul>
-                        </div>
-                      </div>
+                      <div id="divEmpresas" class="row"> <!---row-->
+                          
+                          
                       </div><!---row-->
                   </div><!---container-->
                 </div>
@@ -454,7 +84,7 @@
               </div>
             </div>
          </div>
-    </section><!---modal empresas-->
+    </section><!---modal categorias-->
 
     <section> <!---modal pedir producto-->
        
@@ -462,21 +92,21 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content borderModal">
                 <div class="modal-body">
-                  <h5 class="colorBase"> Producto 1</h5>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                  <h5 class="colorBase" id="nameProductOrder"></h5>
+                  <p id="descripProductOrder"></p>
                   <form action="">
                         <div class="form-group row">
                             <label for="colFormLabelLg" class="col-sm-6 col-form-label col-form-label-lg titleCantidadSolicitar">Cantidad a Solicitar</label>
                             <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-lg inputCantidadSolicitar" id="colFormLabelLg" placeholder="1,2,3...">
+                            <input type="text" class="form-control form-control-lg inputCantidadSolicitar" id="cantidadOrder" placeholder="1,2,3...">
                             </div>
                         </div>
                   </form>
                   <br>
-                  <h5 class="alingPrice">$55</h5>
+                  <h5 class="alingPrice" id="priceProductOrder"></h5>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-primary btnProcesarOrden">Procesar Orden</button>
+                  <button type="button" class="btn btn-primary btnProcesarOrden" onclick="procesarOrder()">Procesar Orden</button>
                 </div>
               </div>
             </div>
@@ -490,7 +120,7 @@
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content bdModalContent">
                 <div class="modal-header modalheader">
-                  <h5 class="modal-title" id="modEmpresasTitle"><strong class="titleOrdenes">Pedro, estas son tus ordenes</strong></h5>
+                  <h5 class="modal-title" id="modEmpresasTitle"><strong class="titleOrdenes"><strong id="userLoggedOrders"></strong> , estas son tus ordenes</strong></h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -501,24 +131,10 @@
                       <div class="row"> <!---row-->
                         <div class="col-12">
                             <div class="card">
-                                <ul class="list-group list-group-flush">
-                                  <li class="list-group-item">
-                                    <h5 class="colorBase"> Producto 1</h5>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                                    <h5 class="alingPrice">$55</h5>
-                                  </li>
-                                  <li class="list-group-item">
-                                      <h5 class="colorBase"> Producto 1</h5>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                                    <h5 class="alingPrice">$55</h5>
-                                  </li>
-                                  <li class="list-group-item">
-                                      <h5 class="colorBase"> Producto 1</h5>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                                    <h5 class="alingPrice">$55</h5>
-                                  </li>
+                                <ul id="ulListOrders" class="list-group list-group-flush">
+                                  <!---lista de ordenes-->
                                 </ul>
-                              </div>
+                            </div>
                         </div>
                       </div><!---row-->
                   </div><!---container-->
@@ -531,6 +147,65 @@
          </div>
 
     </section> <!---modal lista de ordenes-->
+
+    <section> <!---modal nueva categoria-->
+
+        <div class="modal fade bd-example-modal-lg" id="modNewCat" tabindex="-1" role="dialog" aria-labelledby="modOrdenesTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content bdModalContent">
+                <div class="modal-header modalheader">
+                  <h5 class="modal-title" id="modEmpresasTitle"><strong class="titleOrdenes"><strong id="userLoggedOrders"></strong> Hola, agrega una nueva categoria</strong></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <br>
+                  <div class="container"> <!---container-->
+                      <div class="row"> <!---row-->
+                        <div class="col-12">
+                            <form>
+                                <div class="form-row">
+                                  <div class="col-md-4 mb-3">
+                                    <label for="validationServer01">Nombre Categoria</label>
+                                    <input type="text" class="form-control" id="nameCategoria" placeholder="Fuera JOH" value="" required>
+                                  </div>
+                                  <div class="col-md-4 mb-3">
+                                    <label for="validationServer02">Color</label>
+                                    <input type="text" class="form-control" id="colorCategoria" placeholder="#c5334e" value="#c5334e" required>
+                                  </div>
+                                  <div class="col-md-4 mb-3">
+                                    <label for="validationServerUsername">Icono</label>
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend3">:)</span>
+                                      </div>
+                                      <input type="text" class="form-control" id="iconoCategoria" value="fal fa-biohazard" placeholder="fal fa-biohazard" aria-describedby="inputGroupPrepend3" required>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-row">
+                                  <div class="col-md-12 mb-3">
+                                    <label for="validationServer03">Description</label>
+                                    <input type="text" class="form-control" id="desccripCategoria" placeholder="Lorem ipsum" required>
+                                  </div>
+                                </div>
+                                <button class="btn btn-primary" type="submit"> Agregar Empresas</button>
+                                <p>Este boton es para un nueva modal para agregar las empresas</p>
+                              </form>
+                        </div>
+                      </div><!---row-->
+                  </div><!---container-->
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary btnPedir" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-secondary btnPedir" onclick="setNewCat()">Listo</button>
+                </div>
+              </div>
+            </div>
+         </div>
+
+    </section> <!---modal nueva categoria-->
               
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.min.js"></script>
