@@ -676,10 +676,9 @@ const setSelectUsers = () => {
     let dataLocalStorage = JSON.parse(localStorage.getItem('usuarios'));
     
     document.getElementById('selectUsers').innerHTML = '';
+    //linea por default
     document.getElementById('selectUsers').innerHTML = `
-
       <option selected value=-1>Select User</option>
-
     `;
     
     dataLocalStorage.forEach((user, index) => {
